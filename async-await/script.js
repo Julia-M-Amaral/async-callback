@@ -14,4 +14,13 @@ async function fetchData(){
     console.log(`Fruits: ${result}`);
 }
 
+
+function otherOperations(){
+    for(let i = 1; i <= 5; i++){
+        console.log(`Operation ${i}`);
+    }
+}
+
+
 fetchData();
+otherOperations();
