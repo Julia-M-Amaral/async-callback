@@ -1,6 +1,8 @@
 function orderFood(data, callback1, callback2) {
   console.log("Ordering some food...");
-
+  setTimeout(() => {
+    callback2(data);
+  }, 5000);
   setTimeout(() => {
     console.log("Calling Soul ❤️");
   }, 1000);
@@ -9,9 +11,6 @@ function orderFood(data, callback1, callback2) {
     callback1(data);
   }, 2000);
 
-  setTimeout(() => {
-    callback2(data);
-  }, 5000);
 }
 
 function foodPreparing(food) {
@@ -24,4 +23,9 @@ function foodReady(food) {
 
 const food = "🍪";
 
+console.log('Hmmm i want candy');
+
 orderFood(food, foodPreparing, foodReady);
+
+
+
