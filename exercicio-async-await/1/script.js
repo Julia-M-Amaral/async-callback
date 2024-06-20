@@ -27,7 +27,6 @@ function fetchComments() {
         }, 5000);
     });
 }
-
 async function loadData() {
     const user = await fetchUser();
 
