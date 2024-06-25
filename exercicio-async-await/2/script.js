@@ -4,6 +4,11 @@ const fruits = {
     purple: ['Fig', 'Plum', 'Grape', 'Blueberry']
 }
 
+const numbers = {
+    negative: [-1,-2,-3],
+    neutral: [0],
+    positive: [1,2,3,4]
+}
 
 function fetchRedFruits(){
     return new Promise((resolve) => {
@@ -29,7 +34,7 @@ function fetchPurpleFruits(){
     });
 }
 
-async function loadAllData(){
+/*async function loadAllData(){
     const data2 = await fetchYellowFruits();
     console.log(data2);
 
@@ -38,6 +43,46 @@ async function loadAllData(){
 
     const data1 = await fetchRedFruits();   
     console.log(data1);
+}*/
+
+//loadAllData();
+
+
+function fetchPositiveNumbers(){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(numbers.positive)
+        }, 5000);
+    });
 }
 
-loadAllData();
+function fetchNeutralNumbers(){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(numbers.neutral);
+        }, 5200);
+    });
+}
+
+function fetchNegativeNumbers(){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(numbers.negative);
+        }, 5300);
+    });
+}
+
+async function loadAllNumbers(){
+    const results = await Promise.all([fetchPositiveNumbers(), fetchNeutralNumbers(), fetchNegativeNumbers()]);
+    console.log(results);
+}
+
+
+
+async function loadAllFruits(){
+    const results = await Promise.all([fetchYellowFruits(), fetchRedFruits(), fetchPurpleFruits()]);
+    console.log(results);
+}
+
+loadAllFruits();
+loadAllNumbers();
