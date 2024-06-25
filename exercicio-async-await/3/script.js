@@ -23,7 +23,7 @@ function fetchUserData(){
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve (`Name: ${p1.name}, ${p1.age} years old, ${p1.profession} at Avanade.`);
-        }, 2000);
+        }, 8000);
     });
 }
 
@@ -39,20 +39,19 @@ function fetchUserComments(){
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(`${p1.comments.join(", ")}`);
-        }, 1500);
+        }, 5000);
     });
 }
 
 async function loadUserDetails(){
     const resultUserData = await fetchUserData();
-    const resultUserPosts = await fetchUserPosts();
-    const resultUserComments = await fetchUserComments(); 
+    console.log(`Personal data: ${resultUserData}`);
 
-    console.log(`
-        Personal data: ${resultUserData}
-        Posts: ${resultUserPosts}
-        Comments: ${resultUserComments}
-        `)
+    const resultUserPosts = await fetchUserPosts();
+    console.log(`Posts: ${resultUserPosts}`);
+
+    const resultUserComments = await fetchUserComments(); 
+    console.log(`Comments: ${resultUserComments}`);
 }
 
 loadUserDetails();
